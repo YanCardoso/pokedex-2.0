@@ -9,6 +9,10 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 0 8px;
   z-index: -8;
+
+  input { 
+    max-width: 500px;
+  }
 `;
 
 export const CardGrid = styled.div`

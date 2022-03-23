@@ -1,21 +1,24 @@
 import { Container, ContentCard, TextBox } from "./styles";
-import bulbaImg from "../../assets/bulbasaur.png"
+import { Pokemon } from "../Dashboard";
 
-export function PokeCard() {
+
+
+
+export function PokeCard({ pokemonObj }: { pokemonObj: Pokemon }) {
     return (
         <Container>
             <header>
-                <h2>#001</h2>
+                <h1>{`#0${pokemonObj.id}`}</h1>
             </header>
-
             <ContentCard>
                 <TextBox>
-                    <h1>Bulbasaur</h1>
+                    <h2>{pokemonObj.name}</h2>
                     <span>Grass</span>
                     <span>Poison</span>
+                    <h3>フシギダネ</h3>
                 </TextBox>
             </ContentCard>
-            <img src={bulbaImg} alt="Bulba" />
+            <img src={pokemonObj.sprites} alt="Bulba" />
 
         </Container>
     )
