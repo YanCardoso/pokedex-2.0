@@ -41,8 +41,8 @@ interface Stats {
 export function Dashboard() {
 
     const [pokemon, setPokemon] = useState<Pokemon>({} as Pokemon);
-    const [index, setIndex] = useState(7)
-    const [listPokemon, setListPokemon] = useState([])
+    const [index, setIndex] = useState(1)
+    const [listPokemon, setListPokemon] = useState<Pokemon[]>([])
 
     function createPokemonObjetc(data: Data) {
         const poke = {
@@ -53,25 +53,34 @@ export function Dashboard() {
             stats: data.stats,
         }
         setPokemon(poke);
-
+        createPokemonList(poke);
     }
+
+    function createPokemonList(pokemon: Pokemon) {
+        setListPokemon([...listPokemon, pokemon])
+        console.log(listPokemon)
+        if(index < 10){
+            let i = index + 1;
+            setIndex(i)
+        }
+    }
+
 
     useEffect(() => {
         const start = async () => {
             const response = await api.get(`pokemon?limit=10&offset=0`).then(response => {
                 return response.data
             })
-            setListPokemon(response)
         }
-        start()
+        // start()
     }, [])
 
     useEffect(() => {
         const start = async () => {
             const response = await api.get(`pokemon/${index}`)
-            .then(response => {
-                return response.data
-            })
+                .then(response => {
+                    return response.data
+                })
             createPokemonObjetc(response)
         }
         start()
@@ -83,10 +92,10 @@ export function Dashboard() {
             <input type="text" />
 
             <CardGrid>
-                <PokeCard key={pokemon.id} pokemon={pokemon} />
-                { }
+                {listPokemon.map(pokemon => {
+                    return <PokeCard key={pokemon.id} pokemon={pokemon}/>
+                })}
             </CardGrid>
-
 
         </Container>
     )

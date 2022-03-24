@@ -5,7 +5,7 @@ import background from '../../assets/pokebackground.png';
 export const Container = styled.div`
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 220px;
     padding: 8px;
     border-radius: 1.5rem;    
     z-index: -2;
@@ -48,6 +48,18 @@ export const Container = styled.div`
         border-radius: 1.5rem;
         
     }
+
+    h3{
+        position: absolute;
+        bottom: 0;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+        z-index: -1;
+        opacity: 0.2;
+        margin-bottom: 0.5rem;
+        margin-left: 0.5rem;
+    }
     `;
 
     export const TextBox = styled.div`
@@ -60,7 +72,7 @@ export const Container = styled.div`
     h2 {
         font-family: 'Roboto', sans-serif;
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 8px;
         color: #fff;
     }
@@ -70,27 +82,22 @@ export const Container = styled.div`
         font-weight: bold;
         display: inline-block;
         position: relative;
-        background-color: rgba(255,255,255, 0.5);
         border-radius: 1.5rem;
         text-align: center;
         width: 6rem;
         padding: 0.45rem;
+        box-shadow: white 1px 1px;
     }
 
     span + span {
         margin-top: 8px;
     }
 
-    h3{
-        font-family: 'Roboto', sans-serif;
-        font-weight: bold;
-        font-size: 1.5rem;
-        z-index: 1;
-        opacity: 0.4;
-    }
+    
 `
 
 export const ContentCard = styled.div`
     display: flex;
     position: relative;
+
 `

@@ -27,8 +27,6 @@ const colors: Colors = {
 
 }
 
-
 export function definitionColor(colorName: string) {
         return colors[colorName]
-        
 }
