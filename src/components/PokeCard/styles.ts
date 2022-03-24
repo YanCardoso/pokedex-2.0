@@ -7,9 +7,7 @@ export const Container = styled.div`
     width: 100%;
     height: 250px;
     padding: 8px;
-    border-radius: 1.5rem;
-    background-color: var(--grass);
-    
+    border-radius: 1.5rem;    
     z-index: -2;
 
     header {
@@ -69,14 +67,14 @@ export const Container = styled.div`
 
     span {
         font-family: 'Roboto', sans-serif;
-        font-weight: 400;
+        font-weight: bold;
         display: inline-block;
         position: relative;
         background-color: rgba(255,255,255, 0.5);
         border-radius: 1.5rem;
         text-align: center;
         width: 6rem;
-        padding: 0.25rem;
+        padding: 0.45rem;
     }
 
     span + span {
