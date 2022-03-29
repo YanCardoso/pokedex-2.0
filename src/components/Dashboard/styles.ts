@@ -7,12 +7,8 @@ export const Container = styled.div`
   position: relative;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 8px;
-  z-index: -8;
+  padding: 0 12px;
 
-  input { 
-    max-width: 500px;
-  }
 `;
 
 export const CardGrid = styled.div`
@@ -20,7 +16,6 @@ export const CardGrid = styled.div`
   margin: 12px 0;
   position: relative;
   justify-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 12px;
-  z-index: -6;
 `

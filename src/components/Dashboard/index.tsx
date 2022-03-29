@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
+import { Footer } from "../Footer";
+import { Header } from "../Header";
 import { PokeCard } from "../PokeCard";
 import { Container, CardGrid } from "./styles";
 
@@ -58,8 +60,7 @@ export function Dashboard() {
 
     function createPokemonList(pokemon: Pokemon) {
         setListPokemon([...listPokemon, pokemon])
-        console.log(listPokemon)
-        if(index < 10){
+        if (index < 10) {
             let i = index + 1;
             setIndex(i)
         }
@@ -88,15 +89,14 @@ export function Dashboard() {
 
     return (
         <Container>
-            <h1>Pokédex</h1>
-            <input type="text" />
+            <Header />
 
             <CardGrid>
                 {listPokemon.map(pokemon => {
-                    return <PokeCard key={pokemon.id} pokemon={pokemon}/>
+                    return <PokeCard key={pokemon.id} pokemon={pokemon} />
                 })}
             </CardGrid>
-
+            <Footer />
         </Container>
     )
 }

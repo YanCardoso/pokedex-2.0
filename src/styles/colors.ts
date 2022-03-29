@@ -1,8 +1,8 @@
 
-type Key = 'bug' | 'dark' | 'dragon' | 'electric' | 'fire' | 'fairy' | 'fighting' | 'flying' | 'ghost' | 'grass' | 'ground' | 'ice' | 'normal' | 'poison' | 'psychic' | 'rock' | 'steel' | 'water'
+export type PokemonsTypes = 'bug' | 'dark' | 'dragon' | 'electric' | 'fire' | 'fairy' | 'fighting' | 'flying' | 'ghost' | 'grass' | 'ground' | 'ice' | 'normal' | 'poison' | 'psychic' | 'rock' | 'steel' | 'water'
 
 interface Colors {
-        [color: Key | string ]: string
+        [color: string ]: string
 }
 
 const colors: Colors = {
