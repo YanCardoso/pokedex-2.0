@@ -44,7 +44,6 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         background: var(--background);
-        width: 100vw;
     }
 `
 

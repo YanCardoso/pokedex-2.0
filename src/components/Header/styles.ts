@@ -11,7 +11,7 @@ border-radius: 0 0 0.5rem 0.5rem;
  .searchBox {
     display: flex;
     background: var(--shape);
-    max-width: 30rem;
+    max-width: 32rem;
     padding: 0.25rem;
     border-radius: 0.25rem;
     input { 
