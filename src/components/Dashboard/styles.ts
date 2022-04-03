@@ -8,7 +8,8 @@ export const Container = styled.div`
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 12px;
-
+  min-height: 100vh;
+  justify-content: space-between;
 `;
 
 export const CardGrid = styled.div`
@@ -18,4 +19,9 @@ export const CardGrid = styled.div`
   justify-items: center;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 12px;
+`
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
 `

@@ -24,7 +24,7 @@ interface PokeTypeProps extends React.SVGProps<SVGAElement> {
 
 
 type TypeList = {
-    [key in string]: () => JSX.Element;
+    [index: string] : () => JSX.Element;
     // bug: () => JSX.Element;
     // dark: () => JSX.Element;
     // dragon: () => JSX.Element;

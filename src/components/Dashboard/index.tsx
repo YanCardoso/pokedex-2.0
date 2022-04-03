@@ -46,16 +46,15 @@ export function Dashboard() {
     const [index, setIndex] = useState(1)
     const [listPokemon, setListPokemon] = useState<Pokemon[]>([])
 
-    function createPokemonObjetc(data: Data) {
-        const poke = {
+    function createPokemonObject(data: Data) {
+        const newpoke = {
             id: data.id,
             name: data.name,
             types: data.types,
             sprites: data.sprites.other["official-artwork"].front_default,
             stats: data.stats,
         }
-        setPokemon(poke);
-        createPokemonList(poke);
+        createPokemonList(newpoke);        
     }
 
     function createPokemonList(pokemon: Pokemon) {
@@ -82,7 +81,7 @@ export function Dashboard() {
                 .then(response => {
                     return response.data
                 })
-            createPokemonObjetc(response)
+            createPokemonObject(response)
         }
         start()
     }, [index])
