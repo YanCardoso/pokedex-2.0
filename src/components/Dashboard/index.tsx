@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SearchContext } from "../../contexts/SearchContext";
 import { api } from "../../services/api";
+import { createPokemonObject } from "../../utils/createObject";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { PokeCard } from "../PokeCard";
-import { Container, CardGrid } from "./styles";
+import { Container, CardGrid, Content } from "./styles";
 
 export interface Pokemon {
     id: number;
@@ -13,7 +15,7 @@ export interface Pokemon {
     stats: Stats[]
 }
 
-interface Data {
+export interface Data {
     id: number;
     name: string;
     types: Types[];
@@ -40,62 +42,70 @@ interface Stats {
     }
 }
 
+const container = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.8
+        }
+    }
+};
+
+const item = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1
+    }
+};
+
 export function Dashboard() {
 
-    const [pokemon, setPokemon] = useState<Pokemon>({} as Pokemon);
+    const { pokemonSearch } = useContext(SearchContext);
+
     const [index, setIndex] = useState(1)
     const [listPokemon, setListPokemon] = useState<Pokemon[]>([])
 
-    function createPokemonObject(data: Data) {
-        const newpoke = {
-            id: data.id,
-            name: data.name,
-            types: data.types,
-            sprites: data.sprites.other["official-artwork"].front_default,
-            stats: data.stats,
-        }
-        createPokemonList(newpoke);        
-    }
 
-    function createPokemonList(pokemon: Pokemon) {
-        setListPokemon([...listPokemon, pokemon])
-        if (index < 10) {
-            let i = index + 1;
-            setIndex(i)
+    function createPokemonList(data: Data) {
+        const newPoke = createPokemonObject(data)
+
+        if (index <= 9) {
+            setListPokemon([...listPokemon, newPoke])
+            setIndex(index + 1)
         }
     }
-
-
-    useEffect(() => {
-        const start = async () => {
-            const response = await api.get(`pokemon?limit=10&offset=0`).then(response => {
-                return response.data
-            })
-        }
-        // start()
-    }, [])
 
     useEffect(() => {
         const start = async () => {
             const response = await api.get(`pokemon/${index}`)
-                .then(response => {
-                    return response.data
-                })
-            createPokemonObject(response)
+            const data = response.data
+            createPokemonList(data)
         }
         start()
     }, [index])
 
     return (
         <Container>
-            <Header />
-
-            <CardGrid>
-                {listPokemon.map(pokemon => {
-                    return <PokeCard key={pokemon.id} pokemon={pokemon} />
-                })}
-            </CardGrid>
+            <Content>
+                <Header />
+                <CardGrid variants={container} initial="hidden" animate="visible">
+                    {!pokemonSearch.id ?
+                        listPokemon.map(pokemon => {
+                            return <PokeCard variants={item} key={pokemon.id} pokemon={pokemon}
+                            />
+                        }) :
+                        <PokeCard key={pokemonSearch.id} pokemon={pokemonSearch}
+                            variants={item}
+                        />
+                    }
+                </CardGrid>
+            </Content>
             <Footer />
         </Container>
+        
     )
 }

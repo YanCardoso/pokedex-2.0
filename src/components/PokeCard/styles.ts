@@ -1,8 +1,9 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import background from '../../assets/pokebackground.png';
 
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
     position: relative;
     width: 100%;
     height: inherit;

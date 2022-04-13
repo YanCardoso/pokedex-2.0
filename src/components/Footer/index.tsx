@@ -1,5 +1,5 @@
 import {Container} from './style'
-export function Footer(){
+export function Footer() {
     return (
         <Container>
             <span>

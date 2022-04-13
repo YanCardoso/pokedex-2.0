@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
   background: var(--shape);
   flex-direction: column;
@@ -12,7 +13,7 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 
-export const CardGrid = styled.div`
+export const CardGrid = styled(motion.div)`
   display: grid;
   margin: 12px 0;
   position: relative;
@@ -20,7 +21,7 @@ export const CardGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 12px;
 `
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: relative;
