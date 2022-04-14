@@ -1,10 +1,9 @@
 import styled from "styled-components";
-
 export const Container = styled.header`
   display: flex;
   position: relative;
   flex-direction: column;
-  background: -webkit-linear-gradient(0deg, hsla(210, 90%, 80%, 1) 0%, hsla(212, 93%, 49%, 1) 100%);
+  background-color: var(--gray);
   padding: 0.5rem;
   border-radius: 0 0 0.5rem 0.5rem;
 
@@ -13,14 +12,13 @@ export const Container = styled.header`
     position: relative;
     align-items: baseline;
     font-size: 1.5rem;
-    svg {
-      
-    }
 
     h1 {
+      right: 28px;
       position: relative;
       font-family: "Roboto", sans-serif;
       font-weight: 800;
+      pointer-events: none;
     }
   }
 
@@ -37,6 +35,7 @@ export const Container = styled.header`
       height: 2.5rem;
       background-color: var(--shape);
       border: none;
+      margin-right: 0.25rem;
     }
 
     button {

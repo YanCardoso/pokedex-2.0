@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 export const Container = styled(motion.div)`
   display: flex;
@@ -11,6 +11,16 @@ export const Container = styled(motion.div)`
   padding: 0 12px;
   min-height: 100vh;
   justify-content: space-between;
+
+  .button-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    padding: 0 auto;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+  }
 `;
 
 export const CardGrid = styled(motion.div)`
@@ -20,9 +30,9 @@ export const CardGrid = styled(motion.div)`
   justify-items: center;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 12px;
-`
+`;
 export const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: relative;
-`
+`;
