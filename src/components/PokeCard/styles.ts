@@ -8,6 +8,7 @@ export const Container = styled(motion.div)`
   height: inherit;
   padding: 8px;
   border-radius: 1.5rem;
+  cursor: pointer;
 
   header {
     position: relative;
@@ -46,6 +47,7 @@ export const Container = styled(motion.div)`
     right: 0;
     opacity: 0.1;
     border-radius: 1.5rem;
+    pointer-events: none;
   }
 
   h3 {
@@ -87,5 +89,7 @@ export const ContentCard = styled.div`
     max-width: 60%;
     object-fit: cover;
     z-index: 1;
+    user-select: none;
+    pointer-events: none;
   }
 `;

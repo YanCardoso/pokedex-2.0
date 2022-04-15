@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 export const Container = styled.header`
   display: flex;
@@ -28,6 +29,7 @@ export const Container = styled.header`
     max-width: 32rem;
     padding: 0.25rem;
     border-radius: 0.25rem;
+
     input {
       display: flex;
       width: 100%;
@@ -37,21 +39,22 @@ export const Container = styled.header`
       border: none;
       margin-right: 0.25rem;
     }
+  }
+`;
 
-    button {
-      display: flex;
-      position: relative;
-      background: none;
-      border: 0;
-      width: 32px;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+export const Button = styled(motion.button)`
+  display: flex;
+  position: relative;
+  background: none;
+  border: 0;
+  width: 32px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 
-      img {
-        width: 100%;
-      }
-    }
+  img {
+    height: 35px;
+    width: 35px;
   }
 `;

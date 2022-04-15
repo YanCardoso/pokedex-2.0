@@ -1,9 +1,9 @@
-import { Container } from "./styles";
-import pokeSearchImg from "../../assets/poke_symbol.png";
+import { Button, Container } from "./styles";
+import pokeSearchImg from "../../assets/icons8-pokebola-48.png";
 import { useContext } from "react";
 import { SearchContext } from "../../contexts/SearchContext";
-import { motion } from "framer-motion";
-import bg from "../../assets/container_bg.png"
+import { motion, useAnimation } from "framer-motion";
+import bg from "../../assets/container_bg.png";
 
 const svgPath = {
   hidden: {
@@ -24,22 +24,31 @@ const transition = {
 };
 
 export function Header() {
+  const controleAnimate = useAnimation();
   const { search, setSearch, searchPokemon } = useContext(SearchContext);
 
   function handleSearch(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === "Enter") {
       searchPokemon();
+      controleAnimate.start({
+        rotate: [0, 90, -90, 360, -360],
+      });
     }
   }
 
   function handleClick() {
     searchPokemon();
+    controleAnimate.start({
+      rotate: [0, 90, -90, 360, -360],
+    });
   }
 
   return (
-    <Container style={{
-      backgroundImage: `url(${bg})`,
-    }}>
+    <Container
+      style={{
+        backgroundImage: `url(${bg})`,
+      }}
+    >
       <motion.div className="logoContainer">
         <motion.svg
           xmlns="http://www.w3.org/2000/motion.svg"
@@ -76,9 +85,18 @@ export function Header() {
           autoComplete="off"
           onKeyDown={handleSearch}
         />
-        <button type="button" onClick={handleClick}>
+        <Button
+          whileTap={{ scale: 1 }}
+          animate={controleAnimate}
+          transition={{
+            ease: "easeInOut",
+            duration: 2,
+          }}
+          type="button"
+          onClick={handleClick}
+        >
           <img src={pokeSearchImg} alt="Search"></img>
-        </button>
+        </Button>
       </div>
     </Container>
   );

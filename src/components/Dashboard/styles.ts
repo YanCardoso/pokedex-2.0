@@ -36,3 +36,28 @@ export const Content = styled(motion.div)`
   flex-direction: column;
   position: relative;
 `;
+
+export const ContainerButtonScroll = styled(motion.button)`
+  display: flex;
+  position: absolute;
+  background: transparent;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  border: none;
+  cursor: pointer;
+
+  img {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 35px;
+    max-height: 35px;
+    pointer-events: none;
+  }
+`;
