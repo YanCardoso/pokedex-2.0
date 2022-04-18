@@ -3,10 +3,12 @@ import { ToastContainer } from "react-toastify";
 import { Dashboard } from "./components/Dashboard";
 import { SearchProvider } from "./contexts/SearchContext";
 import { GlobalStyle } from "./styles/global";
+import { PokemonDetails } from './pages/PokemonDetails';
 function App() {
   return (
     <SearchProvider>
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <PokemonDetails />
       <ToastContainer />
       <GlobalStyle />
     </SearchProvider>
