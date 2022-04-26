@@ -18,8 +18,6 @@ export const Content = styled.div`
     position: relative;
     align-items: center;
     justify-content: space-between;
-    pointer-events: none;
-    user-select: none;
     margin-top: 12px;
   }
 
