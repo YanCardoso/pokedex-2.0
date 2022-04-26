@@ -2,7 +2,7 @@ import { Container, ContentCard, TypeBox } from "./styles";
 import { definitionColor } from "../../styles/colors";
 import { jp_name } from "../../styles/jp";
 import { PokeTypes } from "../../styles/Poketype";
-import { Pokemon } from "../Dashboard";
+import { Pokemon } from "../../pages/Dashboard";
 import { MotionProps } from "framer-motion";
 
 interface PokeTypeProps {

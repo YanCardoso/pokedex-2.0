@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../../contexts/SearchContext";
 import { api } from "../../services/api";
 import { createPokemonObject } from "../../utils/createObject";
-import { Button } from "../Button";
-import { Footer } from "../Footer";
-import { Header } from "../Header";
-import { PokeCard } from "../PokeCard";
+import { Button } from "../../components/Button";
+import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header";
+import { PokeCard } from "../../components/PokeCard";
 import { Container, CardGrid, Content, ContainerButtonScroll } from "./styles";
 import arrowUp from "../../assets/icons8-seta-para-cima-48.png";
 

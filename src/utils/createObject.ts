@@ -1,4 +1,4 @@
-import { Data, Pokemon } from "../components/Dashboard"
+import { Data, Pokemon } from "../pages/Dashboard"
 
 export function createPokemonObject(data: Data) {
     const newpoke: Pokemon = {

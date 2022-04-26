@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 export const Container = styled(motion.footer)`
   display: flex;
@@ -8,8 +8,8 @@ export const Container = styled(motion.footer)`
   border-radius: 0.5rem 0.5rem 0 0;
   padding: 0.5rem;
 
-    span {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-    }
+  span {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+  }
 `;

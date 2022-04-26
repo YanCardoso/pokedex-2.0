@@ -1,6 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
-import { Dashboard } from "./components/Dashboard";
+import { Dashboard } from "./pages/Dashboard";
 import { SearchProvider } from "./contexts/SearchContext";
 import { GlobalStyle } from "./styles/global";
 import { PokemonDetails } from './pages/PokemonDetails';

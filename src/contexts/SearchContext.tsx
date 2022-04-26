@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { Data, Pokemon } from "../components/Dashboard";
+import { Data, Pokemon } from "../pages/Dashboard";
 import { api } from "../services/api";
 import { toast } from "react-toastify";
 import { createPokemonObject } from "../utils/createObject";
