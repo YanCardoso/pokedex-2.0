@@ -64,7 +64,7 @@ export const Container = styled(motion.div)`
   }
 `;
 
-export const TypeBox = styled.div`
+export const TypeBox = styled(motion.div)`
   display: flex;
   position: relative;
 

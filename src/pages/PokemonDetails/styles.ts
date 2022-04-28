@@ -1,8 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   display: flex;
-  background: var(--grass);
   flex-direction: column;
   position: relative;
   max-width: 1080px;

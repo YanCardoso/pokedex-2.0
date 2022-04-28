@@ -45,29 +45,24 @@ interface Stats {
   };
 }
 
-const container = {
-  hidden: { opacity: 1, scale: 0 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const item = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
 export function Dashboard() {
-  const { pokemonSearch, showContainerButtons } = useContext(SearchContext);
-  const navigate = useNavigate()
+  const container = {
+    hidden: { opacity: 0.8 },
+    visible: {
+      opacity: 1,
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+  const { pokemonSearch, showContainerButtons, pokemonSelectDetails } =
+    useContext(SearchContext);
+  const navigate = useNavigate();
 
   const [index, setIndex] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -89,7 +84,8 @@ export function Dashboard() {
   }
 
   function selectCard(pokemon: Pokemon) {
-    navigate(`${pokemon.id}`)
+    navigate(`${pokemon.id}`);
+    pokemonSelectDetails(pokemon);
   }
 
   useEffect(() => {
@@ -105,7 +101,12 @@ export function Dashboard() {
     <Container>
       <Content>
         <Header />
-        <CardGrid variants={container} initial="hidden" animate="visible">
+        <CardGrid
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          transition={{ delayChildren: 0.8, staggerChildren: 0.4 }}
+        >
           {!pokemonSearch.id ? (
             listPokemon.map((pokemon) => {
               return (
@@ -122,6 +123,7 @@ export function Dashboard() {
               key={pokemonSearch.id}
               pokemon={pokemonSearch}
               variants={item}
+              onClick={() => selectCard(pokemonSearch)}
             />
           )}
         </CardGrid>

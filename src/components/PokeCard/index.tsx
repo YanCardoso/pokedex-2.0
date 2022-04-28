@@ -5,6 +5,7 @@ import { PokeTypes } from "../../styles/Poketype";
 import { Pokemon } from "../../pages/Dashboard";
 import { MotionProps } from "framer-motion";
 import { HTMLAttributes } from "react";
+import { AvatarPoke } from "../AvatarPoke";
 
 interface PokeTypeProps extends HTMLAttributes<HTMLDivElement> {
   pokemon: Pokemon;
@@ -28,12 +29,12 @@ export function PokeCard({ pokemon, ...props }: PokeTypeProps & MotionProps) {
           </header>
           <ContentCard>
             <TypeBox>
-              <PokeTypes pokeType={pokemon.types[0].type.name} />
+              <PokeTypes  pokeType={pokemon.types[0].type.name} />
               {pokemon.types.length > 1 && (
-                <PokeTypes pokeType={pokemon.types[1].type.name} />
+                <PokeTypes  pokeType={pokemon.types[1].type.name} />
               )}
             </TypeBox>
-            <img src={pokemon.sprites} alt={pokemon.name} />
+            <AvatarPoke src={pokemon.sprites} alt={pokemon.name} />
           </ContentCard>
           <h3>{jp_name[pokemon.id]}</h3>
         </Container>

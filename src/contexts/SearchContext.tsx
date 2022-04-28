@@ -12,7 +12,9 @@ interface SearchType {
   search: string;
   setSearch: (search: string) => void;
   searchPokemon: () => void;
+  pokemonSelectDetails: (pokemon: Pokemon) => void;
   pokemonSearch: Pokemon;
+  pokemonDetails: Pokemon;
   showContainerButtons: boolean;
 }
 
@@ -22,6 +24,11 @@ export function SearchProvider(props: SearchProviderProps) {
   const [search, setSearch] = useState("");
   const [pokemonSearch, setPokemonSearch] = useState({} as Pokemon);
   const [showContainerButtons, setShowContainerButtons] = useState(true);
+  const [pokemonDetails, setPokemonDetails] = useState({} as Pokemon);
+
+  function pokemonSelectDetails(props: Pokemon) {
+    setPokemonDetails(props);
+  }
 
   async function searchPokemon() {
     try {
@@ -54,7 +61,9 @@ export function SearchProvider(props: SearchProviderProps) {
         search,
         showContainerButtons,
         setSearch,
+        pokemonSelectDetails,
         searchPokemon,
+        pokemonDetails,
         pokemonSearch,
       }}
     >
