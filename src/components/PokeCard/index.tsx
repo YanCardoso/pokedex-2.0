@@ -4,8 +4,9 @@ import { jp_name } from "../../styles/jp";
 import { PokeTypes } from "../../styles/Poketype";
 import { Pokemon } from "../../pages/Dashboard";
 import { MotionProps } from "framer-motion";
+import { HTMLAttributes } from "react";
 
-interface PokeTypeProps {
+interface PokeTypeProps extends HTMLAttributes<HTMLDivElement> {
   pokemon: Pokemon;
 }
 

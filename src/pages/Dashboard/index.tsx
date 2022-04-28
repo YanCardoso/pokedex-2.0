@@ -8,6 +8,7 @@ import { Header } from "../../components/Header";
 import { PokeCard } from "../../components/PokeCard";
 import { Container, CardGrid, Content, ContainerButtonScroll } from "./styles";
 import arrowUp from "../../assets/icons8-seta-para-cima-48.png";
+import { useNavigate } from "react-router-dom";
 
 export interface Pokemon {
   id: number;
@@ -66,6 +67,7 @@ const item = {
 
 export function Dashboard() {
   const { pokemonSearch, showContainerButtons } = useContext(SearchContext);
+  const navigate = useNavigate()
 
   const [index, setIndex] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -86,6 +88,10 @@ export function Dashboard() {
     }
   }
 
+  function selectCard(pokemon: Pokemon) {
+    navigate(`${pokemon.id}`)
+  }
+
   useEffect(() => {
     const start = async () => {
       const response = await api.get(`pokemon/${index}`);
@@ -103,7 +109,12 @@ export function Dashboard() {
           {!pokemonSearch.id ? (
             listPokemon.map((pokemon) => {
               return (
-                <PokeCard variants={item} key={pokemon.id} pokemon={pokemon} />
+                <PokeCard
+                  onClick={() => selectCard(pokemon)}
+                  variants={item}
+                  key={pokemon.id}
+                  pokemon={pokemon}
+                />
               );
             })
           ) : (
